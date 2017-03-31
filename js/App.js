@@ -3,28 +3,11 @@
  */
 import React from 'react'
 import {Provider, connect} from 'react-redux'
-import {createStore, combineReducers} from 'redux'
-import HomeCompoment from './page/Home/HomeCompoment'
-import AnimateCompoment from './page/Animate/AnimateCompoment'
+import {createStore} from 'redux'
+import AppNavigator from './reduces/AppNavigator'
 import reducer from './reduces'
-import {addNavigationHelpers,StackNavigator} from 'react-navigation';
-import home from "./reduces/homeReduces"
-
-const AppNavigator = StackNavigator({
-    Home: {screen: HomeCompoment},
-    Animate: {screen: AnimateCompoment},
-});
-const navReducer = (state, action) => {
-    const newState = AppNavigator.router.getStateForAction(action, state);
-    return newState || state;
-};
-const appReducer = combineReducers({
-    nav: navReducer,
-    count: home
-});
-
-const store = createStore(appReducer)
-
+import {addNavigationHelpers} from 'react-navigation';
+const store = createStore(reducer)
 
 const AppWithNavigationState = connect(state => ({
     nav: state.nav,

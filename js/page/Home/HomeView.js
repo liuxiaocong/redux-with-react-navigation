@@ -2,17 +2,17 @@
  * Created by xiaoconglau on 29/03/2017.
  */
 import React from "react";
-import {StyleSheet, View, Text, Alert} from "react-native";
+import {StyleSheet, View, Text, Alert, Button} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 30,
+        marginTop: 5,
         flex: 1
     }
 });
 class HomeView extends React.Component {
     static navigationOptions = {
-        title: 'Chat with Lucy',
+        title: 'Home',
     };
 
     componentDidMount() {
@@ -28,9 +28,13 @@ class HomeView extends React.Component {
                     ()=>this.props.onAdd()
                 }>App View</Text>
                 <Text>{this.props.count}</Text>
+                <Button
+                    style={{width:200}}
+                    title={'go animate page'} onPress={()=>this.props.navigation.navigate('Animate')}></Button>
             </View>
         )
     }
-};
+}
+;
 
 export default HomeView;

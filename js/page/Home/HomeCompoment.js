@@ -13,7 +13,6 @@ const mapStateToProps = ( state, ownProps ) => {
 
 const mapDispatchToProps = ( dispatch, ownProps ) => ({
     onAdd: () => {
-
         dispatch( {
             type: 'add'
         } )

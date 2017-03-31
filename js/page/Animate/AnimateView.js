@@ -6,11 +6,14 @@ import {StyleSheet, View, Text, Alert, Animated, Image} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 30,
+        marginTop: 5,
         flex: 1
     }
 });
 class AnimateView extends React.Component{
+    static navigationOptions = {
+        title: 'Animate',
+    };
     constructor( props ) {
         super( props );
         this.state = {
