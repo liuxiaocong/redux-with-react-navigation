@@ -2,7 +2,7 @@
  * Created by xiaoconglau on 29/03/2017.
  */
 import React from "react";
-import {StyleSheet, View, Text, Alert, Animated, Image} from "react-native";
+import {StyleSheet, View, Text, Alert, Animated, Image,Button} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -10,16 +10,18 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
-class AnimateView extends React.Component{
+class AnimateView extends React.Component {
     static navigationOptions = {
         title: 'Animate',
     };
-    constructor( props ) {
-        super( props );
+
+    constructor(props) {
+        super(props);
         this.state = {
             bounceValue: new Animated.Value(0),
         };
     }
+
     componentDidMount() {
         this.state.bounceValue.setValue(1.5);     // Start large
         Animated.spring(                          // Base: spring, decay, timing
@@ -36,17 +38,22 @@ class AnimateView extends React.Component{
     }
 
 
-    render () {
+    render() {
         return (
-            <Animated.Image                         // Base: Image, Text, View
-                source={{uri: 'http://i.imgur.com/XMKOH81.jpg'}}
-                style={{
+            <View style={styles.container}>
+                <Button
+                    style={{width:200}}
+                    title={'go tab page'} onPress={()=>this.props.navigation.navigate('MainScreenNavigator')}></Button>
+                <Animated.Image                         // Base: Image, Text, View
+                    source={{uri: 'http://i.imgur.com/XMKOH81.jpg'}}
+                    style={{
                   flex: 1,
                   transform: [                        // `transform` is an ordered array
                     {scale: this.state.bounceValue},  // Map `bounceValue` to `scale`
                   ]
                 }}
-            />
+                />
+            </View>
         )
     }
 }

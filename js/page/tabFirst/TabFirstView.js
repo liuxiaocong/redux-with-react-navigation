@@ -10,9 +10,9 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
-class HomeView extends React.Component {
+class TabFirstView extends React.Component {
     static navigationOptions = {
-        title: 'Home',
+        title: 'Tab 1',
     };
 
     componentDidMount() {
@@ -24,17 +24,11 @@ class HomeView extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text onPress={
-                    ()=>this.props.onAdd()
-                }>App count</Text>
-                <Text>{this.props.count}</Text>
-                <Button
-                    style={{width:200}}
-                    title={'go animate page'} onPress={()=>this.props.navigation.navigate('Animate')}></Button>
+                <Text>Tab First</Text>
             </View>
         )
     }
 }
 ;
 
-export default HomeView;
+export default TabFirstView;
